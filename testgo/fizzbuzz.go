@@ -3,14 +3,13 @@ package main
 import "strconv"
 
 func FizzBuzz(n int) string {
+	mapFizz := map[bool]string{true: "Fizz"}
+	mapBuzz := map[bool]string{true: "Buzz"}
 
-	if n%15 == 0 {
-		return "FizzBuzz"
-	} else if n%3 == 0 {
-		return "Fizz"
-	} else if n%5 == 0 {
-		return "Buzz"
+	result := ""
+	result += mapFizz[n%3 == 0] + mapBuzz[n%5 == 0]
+	if result == "" {
+		result = strconv.Itoa(n)
 	}
-
-	return strconv.Itoa(n)
+	return result
 }
