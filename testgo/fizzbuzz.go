@@ -15,12 +15,25 @@ Level:
 5. FizzBuzz with Object-Oriented Programming (OOP) style.
 */
 
-func FizzBuzz(n int) string {
-	mapFizz := map[bool]string{true: "Fizz"}
-	mapBuzz := map[bool]string{true: "Buzz"}
-	mapNum := map[bool]string{false: strconv.Itoa(n)}
+func fizzCheck(n int) string {
+	if n%3 == 0 {
+		return "Fizz"
+	}
+	return ""
+}
 
+func buzzCheck(n int) string {
+	if n%5 == 0 {
+		return "Buzz"
+	}
+	return ""
+}
+
+func FizzBuzz(n int) string {
 	result := ""
-	result += mapFizz[n%3 == 0] + mapBuzz[n%5 == 0] + mapNum[n%3 == 0 || n%5 == 0]
+	result += fizzCheck(n) + buzzCheck(n)
+	if result == "" {
+		return strconv.Itoa(n)
+	}
 	return result
 }
